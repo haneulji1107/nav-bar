@@ -55,6 +55,10 @@ body {
   transform: scale(1.2);
 }
 
+.bars {
+  display: none;
+}
+
 @media screen and (max-width: 800px) {
   .nav-bar {
     flex-direction: column;
@@ -64,6 +68,20 @@ body {
 
   .nav-bar__logo {
     align-self: flex-start;
+    width: 100%;
+    position: relative;
+  }
+
+  .bars {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .bars:hover {
+    opacity: 0.6;
   }
 
   .nav-bar__menus {
@@ -87,4 +105,8 @@ body {
   .nav-bar__sns i:last-child {
     margin: 0;
   }
+}
+
+.hidden {
+  display: none;
 }
