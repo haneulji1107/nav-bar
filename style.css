@@ -1,3 +1,9 @@
+:root {
+  --text-color: #f0f4f5;
+  --background-color: #263343;
+  --accent-color: #d49466;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,19 +12,31 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
 .nav-bar {
-  background-color: black;
+  background-color: var(--background-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 30px;
-  color: white;
+  padding: 20px 30px;
+  color: var(--text-color);
 }
 
 .nav-bar__logo {
   font-size: 20px;
-  color: inherit;
-  text-decoration: none;
 }
 
 .nav-bar__logo i {
@@ -26,44 +44,48 @@ body {
   margin-right: 10px;
 }
 
+.nav-bar__logo .bars {
+  display: none;
+}
+
 .nav-bar__menus {
   display: flex;
   list-style: none;
   margin: 0;
+  padding-left: 0;
 }
 
 .nav-bar__menus li {
-  margin-right: 10px;
   cursor: pointer;
-  padding: 4px 10px;
+  padding: 4px 20px;
   border-radius: 4px;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .nav-bar__menus li:hover {
   background-color: rgb(170, 159, 159);
 }
 
-.nav-bar__sns i {
-  margin-right: 20px;
+.nav-bar__sns {
+  display: flex;
+}
+
+.nav-bar__sns li {
+  padding: 0 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-.nav-bar__sns i:hover {
+.nav-bar__sns li:hover {
   opacity: 0.6;
   transform: scale(1.2);
 }
 
-.bars {
-  display: none;
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   .nav-bar {
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px 10px;
+    padding: 20px 30px;
   }
 
   .nav-bar__logo {
@@ -72,7 +94,8 @@ body {
     position: relative;
   }
 
-  .bars {
+  .nav-bar__logo .bars {
+    cursor: pointer;
     display: flex;
     position: absolute;
     top: 0;
@@ -80,11 +103,12 @@ body {
     transition: opacity 0.3s ease-in-out;
   }
 
-  .bars:hover {
+  .nav-bar__logo .bars:hover {
     opacity: 0.6;
   }
 
   .nav-bar__menus {
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 0;
@@ -99,14 +123,11 @@ body {
   }
 
   .nav-bar__sns {
+    display: none;
     margin-top: 10px;
-  }
-
-  .nav-bar__sns i:last-child {
-    margin: 0;
   }
 }
 
-.hidden {
-  display: none;
+.active {
+  display: flex;
 }
